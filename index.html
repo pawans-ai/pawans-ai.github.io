@@ -373,24 +373,89 @@
 <!-- Software Proficiency Section -->
 <div class="container mt-5">
   <div class="text-center mb-4">
-    <h3><span>Software </span>Proficiency</h3>
+    <h3></span>Software</span> Proficiency</h3>
   </div>
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <!-- 13 Logos -->
-      <div class="swiper-slide"><img src="images/logo1.png" alt="Logo 1" /></div>
-      <div class="swiper-slide"><img src="images/logo2.png" alt="Logo 2" /></div>
-      <div class="swiper-slide"><img src="images/logo3.png" alt="Logo 3" /></div>
-      <div class="swiper-slide"><img src="images/logo4.jpg" alt="Logo 4" /></div>
-      <div class="swiper-slide"><img src="images/logo5.jpg" alt="Logo 5" /></div>
-      <div class="swiper-slide"><img src="images/logo6.png" alt="Logo 6" /></div>
-      <div class="swiper-slide"><img src="images/logo7.png" alt="Logo 7" /></div>
-      <div class="swiper-slide"><img src="images/logo8.png" alt="Logo 8" /></div>
-      <div class="swiper-slide"><img src="images/logo9.png" alt="Logo 9" /></div>
-      <div class="swiper-slide"><img src="images/logo10.png" alt="Logo 10" /></div>
-      <div class="swiper-slide"><img src="images/logo11.png" alt="Logo 11" /></div>
-      <div class="swiper-slide"><img src="images/logo12.png" alt="Logo 12" /></div>
-      <div class="swiper-slide"><img src="images/logo13.jpg" alt="Logo 13" /></div>
+      <!-- Each slide: Logo + Name -->
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo1.png" alt="Logo 1" />
+          <p class="CCH Axcess Tax">Logo 1</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo2.png" alt="Logo 2" />
+          <p class="Intuit Lacerte">Logo 2</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo3.png" alt="Logo 3" />
+          <p class="Intuit ProConnect">Logo 3</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo4.jpg" alt="Logo 4" />
+          <p class="TaxAct">Logo 4</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo5.jpg" alt="Logo 5" />
+          <p class="TaxSlayer">Logo 5</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo6.png" alt="Logo 6" />
+          <p class="UltraTax CS">Logo 6</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo7.png" alt="Logo 7" />
+          <p class="Drake Tax">Logo 7</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo8.png" alt="Logo 8" />
+          <p class="Canopy Tax">Logo 8</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo9.png" alt="Logo 9" />
+          <p class="ClickUp">Logo 9</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo10.png" alt="Logo 10" />
+          <p class="Acumatica">Logo 10</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo11.png" alt="Logo 11" />
+          <p class="Intuit QuickBooks">Logo 11</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo12.jpg" alt="Logo 12" />
+          <p class="Tally ERP 9">Logo 12</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo13.jpg" alt="Logo 13" />
+          <p class="Tally Prime">Logo 13</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -409,15 +474,19 @@
     breakpoints: {
       0: {
         slidesPerView: 2,
+        spaceBetween: 10,
       },
       576: {
         slidesPerView: 3,
+        spaceBetween: 15,
       },
       768: {
         slidesPerView: 4,
+        spaceBetween: 20,
       },
       992: {
         slidesPerView: 6,
+        spaceBetween: 30,
       },
     },
   });
@@ -440,6 +509,13 @@
   .swiper-slide img {
     height: 60px;
     object-fit: contain;
+    margin-bottom: 8px;
+  }
+
+  .logo-name {
+    font-size: 14px;
+    margin: 0;
+    color: #333;
   }
 </style>
 
