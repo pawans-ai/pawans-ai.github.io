@@ -382,79 +382,79 @@
       <div class="swiper-slide">
         <div>
           <img src="images/logo1.png" alt="Logo 1" />
-          <p class="CCH Axcess Tax">CCH Axcess Tax</p>
+          <p class="logo-name">CCH Axcess Tax</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo2.png" alt="Logo 2" />
-          <p class="Intuit Lacerte">Intuit Lacerte</p>
+          <p class="logo-name">Intuit Lacerte</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo3.png" alt="Logo 3" />
-          <p class="Intuit ProConnect">Intuit ProConnect</p>
+          <p class="logo-name">Intuit ProConnect</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo4.png" alt="Logo 4" />
-          <p class="TaxAct">TaxAct</p>
+          <p class="logo-name">TaxAct</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo5.png" alt="Logo 5" />
-          <p class="TaxSlayer">TaxSlayer</p>
+          <p class="logo-name">TaxSlayer</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo6.png" alt="Logo 6" />
-          <p class="UltraTax CS">UltraTax CS</p>
+          <p class="logo-name">UltraTax CS</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo7.png" alt="Logo 7" />
-          <p class="Drake Tax">Drake Tax</p>
+          <p class="logo-name">Drake Tax</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo8.png" alt="Logo 8" />
-          <p class="Canopy Tax">Canopy Tax</p>
+          <p class="logo-name">Canopy Tax</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo9.png" alt="Logo 9" />
-          <p class="ClickUp">ClickUp</p>
+          <p class="logo-name">ClickUp</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo10.png" alt="Logo 10" />
-          <p class="Acumatica">Acumatica</p>
+          <p class="logo-name">Acumatica</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo11.png" alt="Logo 11" />
-          <p class="Intuit QuickBooks">Intuit QuickBooks</p>
+          <p class="logo-name">Intuit QuickBooks</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo12.png" alt="Logo 12" />
-          <p class="Tally ERP 9">Tally ERP 9</p>
+          <p class="logo-name">Tally ERP 9</p>
         </div>
       </div>
       <div class="swiper-slide">
         <div>
           <img src="images/logo13.jpg" alt="Logo 13" />
-          <p class="Tally Prime">Tally Prime</p>
+          <p class="logo-name">Tally Prime</p>
         </div>
       </div>
     </div>
@@ -466,29 +466,13 @@
 <script>
   var swiper = new Swiper(".mySwiper", {
     loop: true,
+    slidesPerView: "auto",
+    spaceBetween: 80,
+    speed: 5000, // Total speed in milliseconds
     autoplay: {
-      delay: 750,
+      delay: 0,
       disableOnInteraction: false,
-    },
-    slidesPerView: 6,
-    spaceBetween: 150,
-    breakpoints: {
-      0: {
-        slidesPerView: 2,
-        spaceBetween: 150,
-      },
-      576: {
-        slidesPerView: 3,
-        spaceBetween: 150,
-      },
-      768: {
-        slidesPerView: 4,
-        spaceBetween: 150,
-      },
-      992: {
-        slidesPerView: 6,
-        spaceBetween: 180,
-      },
+      reverseDirection: true, // Enables right-to-left
     },
   });
 </script>
@@ -500,11 +484,18 @@
     padding: 20px 0;
   }
 
+  .swiper-wrapper {
+    transition-timing-function: linear !important; /* Smooth continuous scroll */
+  }
+
   .swiper-slide {
+    width: auto; /* Each slide adjusts to its content */
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    padding: 0 20px; /* Space between logos */
   }
 
   .swiper-slide img {
