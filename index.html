@@ -468,11 +468,11 @@
     loop: true,
     slidesPerView: "auto",
     spaceBetween: 80,
-    speed: 5000, // Total speed in milliseconds
+    speed: 3000, // faster speed (3000ms = 3 seconds for transition)
     autoplay: {
       delay: 0,
       disableOnInteraction: false,
-      reverseDirection: true, // Enables right-to-left
+      reverseDirection: false, // Left to right
     },
   });
 </script>
@@ -485,17 +485,17 @@
   }
 
   .swiper-wrapper {
-    transition-timing-function: linear !important; /* Smooth continuous scroll */
+    transition-timing-function: linear !important;
   }
 
   .swiper-slide {
-    width: auto; /* Each slide adjusts to its content */
+    width: auto;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 20px; /* Space between logos */
+    padding: 0 20px;
   }
 
   .swiper-slide img {
