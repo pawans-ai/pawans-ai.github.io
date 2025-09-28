@@ -1,12 +1,818 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pawan Sharma – 3D Portfolio</title>
+    <title>Pawan Sharma Portfolio</title>
+    <meta charset="utf-8">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Basic SEO Meta Tags -->
+    <title>Pawan Sharma - Versatile Accountant | Tax Pro | Emerging CFO Leader</title>
+    <meta name="description" content="Pawan Sharma is an MBA Finance graduate and PhD scholar specializing in financial management, IT project management, and business development. Available for finance and IT-related roles.">
+    <meta name="keywords" content="Pawan Sharma, Sharma Pawan, B.Com, M.Com, CA Inter, AFSP, EA, Financial Analyst, CPA, Automation, Financial Controller ,Pawan ">
+    <meta name="author" content="Pawan Sharma">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="English">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <!-- Open Graph Meta Tags (for Social Media) -->
+    <meta property="og:title" content="Pawan Sharma - Versatile Accountant, Tax Pro, Emerging CFO Leader">
+    <meta property="og:description" content="I am open to short-term bookkeeping, tax preparation, financial statement preparation, data cleanup, and Excel reporting projects. If you need a detail-oriented accounting and tax professional for project-based work, let's connect!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pawans-ai.github.io/">
+    <meta property="og:image" content="https://pawans-ai.github.io/images/profile-image.png">
+    <meta property="og:site_name" content="Pawan Sharma">
+    
+    <!-- Canonical URL (Helps Prevent Duplicate Content Issues) -->
+    <link rel="canonical" href="https://pawans-ai.github.io/">
+    
+    <!-- Schema Markup (Structured Data for Google Search) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pawan Sharma",
+      "url": "https://pawans-ai.github.io/",
+      "image": "https://pawans-ai.github.io/images/profile-image.png",
+      "jobTitle": "Versatile Accountant, Tax Pro, Emerging CFO Leader",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "US Accounting & Taxation"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/pawan-sharma-753ab5323/",
+        "https://pawans-ai.github.io/"
+      ]
+    }
+    </script>
+
+    <!-- Favicon (Small Icon in Browser Tab) -->
+    <link rel="icon" type="image/png" href="https://pawans-ai.github.io/images/profile-image.png">
+
+    <!-- Sitemap (For Better Indexing by Search Engines) -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://pawans-ai.github.io/sitemap.xml">
+
+
+
+<meta name="google-site-verification" content="SrTT0-WBJ4zAoc36afxf8J1-1u_i89lsGpdKCkCp2K8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+<style>
+
+/*======================================
+//--//-->   ABOUT
+======================================*/
+
+.about-mf .box-shadow-full {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.about-mf .about-img {
+  margin-bottom: 2rem;
+}
+
+.about-mf .about-img img {
+  margin-left: 10px;
+}
+
+
+.skill-mf .progress {
+  /* background-color: #396eff
+  ; */
+  margin: .5rem 0 1.2rem 0;
+  border-radius: 0;
+  height: .7rem;
+}
+
+.skill-mf .progress .progress-bar {
+  height: .7rem;
+  background-color: #396eff;
+}
+
+
+/* Animation styles */
+#typing-animation {
+  position: relative;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(20, end) infinite;
+}
+
+#typing-animation:before {
+  content: "";
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #ccc;
+  animation: typing-cursor 0.5s ease-in-out infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typing-cursor {
+  from {
+    width: 5px;
+  }
+  to {
+    width: 0;
+  }
+}
+
+
+/* project image zoom effect */
+
+.zoom-effect {
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+
+.zoom-effect:hover {
+  transform: scale(1.1);
+}
+
+
+</style>
+
+
   </head>
-  <body class="bg-[#0b1220]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+	  
+	  
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+			<a class="navbar-brand" href="/">
+				<div style="line-height: 1.2;">
+				  <strong>Pawan Sharma</strong><br>
+				  <small>B.Com, M.Com, CA Inter, AFSP</small>
+				</div>
+			  </a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
+	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
+	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+	  <section id="home-section" class="hero">
+		  <div class="home-slider  owl-carousel">
+	       <div class="slider-item ">
+	      	<div class="overlay"></div>
+	         <div class="container">
+	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.jpg);">
+	          	 <div class="overlay"></div>
+	          	</div>
+		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text">
+						<span class="subheading" style="font-size: 24px;">Hello!</span>
+						  <h1 class="mb-4 mt-3">I'm <span>Pawan Sharma</span></h1>
+
+						<!-- Element to contain animated typing -->
+						<span id="typing-animation"></span>
+
+						<script>
+
+						// Initialize the typing animation
+						const typingAnimationElement = document.getElementById('typing-animation');
+
+						// Create an array of typing text
+						const typingTexts = [
+						'Detail Oriented    ',
+						'Problem Solver    ',
+						'Quality Oriented    ',
+						'Quick Learner    ',
+						'Enthusiastic    ',
+						];
+
+						// Create a function to display the typing animation for a given text
+						function playTypingAnimation(text) {
+						// Loop through each character and add it to the element
+						for (let i = 0; i < text.length; i++) {
+							setTimeout(() => {
+							typingAnimationElement.textContent += text[i];
+							}, i * 200); // Increase the delay to slow down the typing animation
+						}
+
+						// Once the animation is complete, reset the text and start over
+						setTimeout(() => {
+							typingAnimationElement.textContent = '';
+							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+						}, text.length * 200);
+						}
+
+						// Start the typing animation loop
+						playTypingAnimation(typingTexts[0]);
+
+						</script>
+
+						<br>
+						<br>
+			            <h2>Versatile Accountant, TaxPro, Emerging CFO Leader</h2>
+						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
+						<!-- <br> -->
+			            <p><a href="https://www.linkedin.com/in/pawan-sharma-753ab5323/" class="btn btn-primary py-3 px-4">LINKEDIN</a> 
+							<a href="https://github.com/SharmaPawan" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+		            </div>
+		          </div>
+	        	</div>
+	        </div>
+	      </div>
+		</div>
+    </section>
+
+
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+      <div class="container">
+        <div class="row d-flex align-items-stretch">
+    
+          <!-- LEFT SIDE (Image + Address - Desktop Only) -->
+          <div class="col-md-6 col-lg-6 d-flex flex-column">
+            <!-- Hero Image -->
+            <div class="img-about w-100 js-fullheight" style="background-image: url('images/aboutme1.png'); background-size: cover; background-position: center;">
+              <div class="overlay"></div>
+            </div>
+    
+            <!-- Address Info - Desktop only -->
+            <ul class="about-info mt-5 px-md-0 px-2 d-none d-lg-block"> 
+              <li class="d-flex"><span>Languages:</span> <span>English, Hindi, Gujarati</span></li>
+              <li class="d-flex"><span>Interests:</span> <span>Exploring Technologies, Dancing, Teaching</span></li>
+              <li class="d-flex"><span>Address:</span> <span>Isanpur, Ahmedabad, Gujarat, India</span></li>
+            </ul>
+          </div> <!-- END LEFT SIDE -->
+    
+          <!-- RIGHT SIDE - About Me -->
+          <div class="col-md-6 col-lg-6 pl-lg-5 pb-5">
+            <div class="row justify-content-start pb-3">
+              <div class="col-md-12 heading-section ftco-animate">
+                <h1 class="big">About</h1>
+                <h2 class="mb-4">About Me</h2>
+    
+                <p style="text-align: justify;">
+                  I’m Pawan Sharma, a detail-oriented professional with 5+ years of experience in US accounting, taxation, and financial reporting.
+                </p>
+    
+                <!-- Key Skills Block -->
+                <p style="text-align: justify;"><strong>My Key Skills & Expertise are:</strong></p>
+                <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
+                  <li>Full-cycle bookkeeping & financial reporting</li>
+                  <li>AP processing, vendor reconciliations, & statement matching</li>
+                  <li>Bank, credit card, lease, & intercompany reconciliations</li>
+                  <li>Month-end close, accruals, prepaid expenses, & depreciation</li>
+                  <li>US GAAP compliance & ASC standards application</li>
+                  <li>US Taxation: Income Tax, Payroll Tax, & Sales Tax Filings</li>
+                  <li>Payroll processing & job cost analysis</li>
+                  <li>Dashboard creation for ratio analysis & trend reporting</li>
+                </ul>
+    
+                <p style="text-align: justify;">
+                  I specialize in process automation and workflow optimization using tools like Power Automate, Excel macros, and Zoho Flow.
+                </p>
+                <p style="text-align: justify;">
+                  My experience includes team leadership, new hire training, and developing client-specific KPIs for performance tracking.
+                  I'm passionate about solving problems, staying ahead of deadlines, and adding value through continuous learning and innovation.
+                </p>
+    
+                <!-- Address Info - Mobile Only -->
+                <ul class="about-info mt-4 d-lg-none" style="padding-left: 0; margin-left: 0;">
+                  <li class="d-flex"><span>Languages:</span> <span>English, Hindi, Gujarati</span></li>
+                  <li class="d-flex"><span>Interests:</span> <span>Exploring Technologies, Dancing, Teaching</span></li>
+                  <li class="d-flex"><span>Address:</span> <span>Isanpur, Ahmedabad, Gujarat, India</span></li>
+                </ul>
+    
+              </div>
+            </div>
+          </div> <!-- END RIGHT SIDE -->
+    
+        </div>
+      </div>
+    </section>    
+    
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<!-- Software Proficiency Section -->
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h3><span style="color: #396eff; font-family: inherit;">Software</span> Proficiency</h3>
+  </div>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Each slide: Logo + Name -->
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo1.png" alt="Logo 1" />
+          <p class="logo-name">CCH Axcess Tax</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo2.jpg" alt="Logo 2" />
+          <p class="logo-name">Intuit Lacerte</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo3.png" alt="Logo 3" />
+          <p class="logo-name">Intuit ProConnect</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo4.png" alt="Logo 4" />
+          <p class="logo-name">Intuit ProSeries</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo5.png" alt="Logo 5" />
+          <p class="logo-name">TaxSlayer</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo6.png" alt="Logo 6" />
+          <p class="logo-name">UltraTax CS</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo7.png" alt="Logo 7" />
+          <p class="logo-name">Drake Tax</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo8.png" alt="Logo 8" />
+          <p class="logo-name">Canopy Tax</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo9.png" alt="Logo 9" />
+          <p class="logo-name">ClickUp</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo10.png" alt="Logo 10" />
+          <p class="logo-name">Acumatica</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo11.png" alt="Logo 11" />
+          <p class="logo-name">Intuit QuickBooks</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo12.png" alt="Logo 12" />
+          <p class="logo-name">Tally ERP 9</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo13.png" alt="Logo 13" />
+          <p class="logo-name">Tally Prime</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo14.png" alt="Logo 14" />
+          <p class="logo-name">NetSuite</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo15.png" alt="Logo 15" />
+          <p class="logo-name">GSuite</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo16.png" alt="Logo 16" />
+          <p class="logo-name">Microsoft 365</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo17.png" alt="Logo 17" />
+          <p class="logo-name">ShareFile</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo18.png" alt="Logo 18" />
+          <p class="logo-name">SurePrep</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo19.png" alt="Logo 19" />
+          <p class="logo-name">Learnyst LMS</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo20.png" alt="Logo 20" />
+          <p class="logo-name">Zoho</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo21.png" alt="Logo 21" />
+          <p class="logo-name">ChatGPT</p>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    slidesPerView: "auto",
+    spaceBetween: 1,
+    speed: 900, // faster speed (3000ms = 3 seconds for transition)
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      reverseDirection: false, // Left to right
+    },
+  });
+</script>
+
+<!-- Optional CSS -->
+<style>
+  .swiper {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .swiper-wrapper {
+    transition-timing-function: linear !important;
+  }
+
+  .swiper-slide {
+    width: auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .swiper-slide img {
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+
+  .logo-name {
+    font-size: 14px;
+    margin: 0;
+    color: #999393;
+  }
+</style>
+	  
+
+	<section class="ftco-section ftco-no-pb" id="education-section">
+			<div class="container">
+				<div class="row justify-content-center pb-5">
+			  <div class="col-md-10 heading-section text-center ftco-animate">
+				  <h1 class="big big-2">Education</h1>
+				<h2 class="mb-4">Education</h2>
+			  </div>
+			</div>
+			
+
+		<div class="row justify-content-center">
+			<!-- B.Com and M.Com side by side -->
+			<div class="col-md-6 col-lg-4">
+			  <div class="resume-wrap ftco-animate text-center">
+				<span class="date">2016-2018</span>
+				<h2>Bachelor of Commerce (B.Com)</h2>
+				<span class="position">Gujarat Commerce College</span>
+				<p class="mt-4">Percentage: 72%.</p>
+			  </div>
+			</div>
+		  
+			<div class="col-md-6 col-lg-4">
+			  <div class="resume-wrap ftco-animate text-center">
+				<span class="date">2019-2021</span>
+				<h2>Master of Commerce (M.Com)</h2>
+				<span class="position">Gujarat Commerce College</span>
+				<p class="mt-4">Percentage: 65%.</p>
+			  </div>
+			</div>
+		  </div>
+		  
+		  <!-- CA Inter centered below -->
+		  <div class="row justify-content-center">
+			<div class="col-md-6 col-lg-5">
+			  <div class="resume-wrap ftco-animate text-center">
+				<span class="date">2016-2019</span>
+				<h2>CA Inter</h2>
+				<span class="position">ICAI</span>
+				<p class="mt-4">Percentage: 50%.</p>
+			  </div>
+			</div>
+		  </div>
+		  
+		  <!-- Download button centered below -->
+		  <div class="row justify-content-center mt-4">
+			<div class="col-md-6 text-center ftco-animate">
+			  <p>
+				<a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view" class="btn btn-primary py-4 px-5">
+				  Download CV
+				</a>
+			  </p>
+			</div>
+		  </div>
+    </section>
+
+
+
+   
+<!--
+   <section class="ftco-section" id="project-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Projects</h1>
+            <h2 class="mb-4">Projects</h2>
+            <p>Below are sample projects focused on financial analysis, risk assessment, and business strategy.</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="#">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="#">Digital Financial Literecy in Rural Area</a></h3>
+                <p>Digital Financial Literecy in Rural Area.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="#">Data Analysis using Python Project for Beginners</a></h3>
+                <p>Performed exploratory data analysis on diwali sales data using Python to improve the customer experience.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/proj_3.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="#">Power BI Sales dashboard Project for Beginners</a></h3>
+                <p>Designed a power bi dashboard for Madhav Store to track and analyze the online sales data acorss India.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+	<br>
+
+		<div class="row d-flex justify-content-center">  
+			<div class="col-md-4 d-flex ftco-animate">
+				<div class="blog-entry justify-content-end">
+				<a href="#" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
+				</a>
+				<div class="text mt-3 float-right d-block">
+  
+				  <h3 class="heading"><a href="#">Sales Forecast- Time Series Forecasting</a></h3>
+				  <p>Used multiple machine learning models to forecast sales (retail store) and performed time series analysis.</p>
+				</div>
+			  </div>
+			</div>
+			<div class="col-md-4 d-flex ftco-animate">
+				<div class="blog-entry justify-content-end">
+				<a href="#">
+				</a>
+				<div class="text mt-3 float-right d-block">
+  
+				  <h3 class="heading"><a href="#">Customer Segmentation using clustering model</a></h3>
+				  <p>Developed a ML model to give various recommendations of financial products &amp; services on target customer groups.</p>
+				</div>
+			  </div>
+			</div>
+		 </div>
+	  </div>
+    </section> -->
+
+	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
+      <div class="container">
+		<!-- <div class="row d-md-flex align-items-center">
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="20">0</strong>
+                <span>Achievements</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="30">0</strong>
+                <span>Projects</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <!-- <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="1000">0</strong>
+                <span>Mentored Professionals</span>
+              </div>
+            </div> -->
+          </div>
+          <!-- <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="500">0</strong>
+                <span>Cups of coffee</span>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+	
+	<section class="ftco-about img ftco-section ftco-no-pb" id="project-section"> 
+	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_10.jpg)">
+			<!-- <div class="container"> -->
+				<div class="row justify-content-center">
+					<div class="col-md-7 ftco-animate text-center">
+						<h2>More projects on<span> Github  </span> </h2>
+						<div class="heading"> <h4> I love to solve business problems &amp; uncover hidden data stories </h4>
+						<br>
+						<p><a href="https://github.com/SharmaPawan" class="btn btn-primary py-3 px-5">GitHub</a></p>
+						</div>
+					</div>
+				</div>
+			<!-- </div> -->
+		</div>
+	</section>
+
+
+
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Contact</h1>
+            <h2 class="mb-4">Contact Me</h2>
+            <p>Below are the details to reach out to me!</p>
+          </div>
+        </div>
+
+        <div class="row d-flex contact-info mb-5">
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-map-signs"></span>
+          		</div>
+          		<h3 class="mb-4">Address</h3>
+	            <p>Gujarat, India</p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-phone2"></span>
+          		</div>
+          		<h3 class="mb-4">Contact Number</h3>
+	            <p><a href="tel://8980477928">+91 89804-77928</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-paper-plane"></span>
+          		</div>
+          		<h3 class="mb-4">Email Address</h3>
+	            <p><a href="pawansharma0805@gmail.com">pawansharma0805@gmail.com</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-globe" a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view"></span>
+          		</div>
+          		<h3 class="mb-4"><a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view">Download CV</h3>
+	            <p><a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view">CV Link</a></p>
+	          </div>
+          </div>
+
+		  <div class="container">
+			<br>
+			<br>
+			<div class="row justify-content-center">
+				<div class="col-md-7 ftco-animate text-center">
+					<h2>Have a<span> Question?  </span> <a href="contact.html" class="btn btn-primary py-3 px-5">Click Here</a></h2>
+				</div>
+			</div>
+				<br>
+					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
+					  <li class="ftco-animate normal-txt">Find me on  </li>
+					  <li class="ftco-animate"><a href="https://www.youtube.com/@weLearner_/videos"><span class="icon-youtube"></span></a></li>
+					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/pawan-sharma-753ab5323/"><span class="icon-linkedin"></span></a></li>  
+				      <li class="ftco-animate"><a href="https://www.instagram.com/pawansharma_founder/"><span class="icon-instagram"></span></a></li>
+					</ul>
+				<br>
+		   </div>
+   </div>
+ </section>
+
+
+ 
+	
+    <footer class="ftco-footer ftco-section">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-12 text-center">
+  
+			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This  webpage is made <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://pawans-ai.github.io/" target="_blank">Pawan</a>
+	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  
+  <script src="js/main.js"></script>
+    
   </body>
 </html>
