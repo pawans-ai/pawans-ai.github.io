@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Excel Automations Suite",
+    "tags": [
+      "Excel",
+      "VBA",
+      "Automation"
+    ],
+    "summary": "Macros and UI Path flows that cut reporting time by 80%.",
+    "image": "assets/projects/excel-automations.jpg",
+    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "repo": "https://github.com/yourname/excel-automations",
+    "demo": "https://yourname.github.io/excel-automations/"
+  },
+  {
+    "title": "Sales Dashboard (Power Query + Power BI)",
+    "tags": [
+      "Power BI",
+      "Power Query"
+    ],
+    "summary": "Interactive dashboard with drilldowns & scheduled refresh.",
+    "image": "assets/projects/powerbi-sales.jpg",
+    "repo": "https://github.com/yourname/powerbi-sales",
+    "demo": ""
+  },
+  {
+    "title": "ETL with Python & Pandas",
+    "tags": [
+      "Python",
+      "Pandas"
+    ],
+    "summary": "Cleaned 2M+ rows, automated data quality checks, produced Excel outputs.",
+    "image": "assets/projects/python-etl.jpg",
+    "repo": "https://github.com/yourname/python-etl",
+    "demo": ""
+  }
+]
