@@ -1,0 +1,484 @@
+/**
+ * 3D Experience UI Overlays
+ * Additional styling for interactive elements
+ */
+
+/* Tooltip for interactive objects */
+.tooltip {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border: 1px solid rgba(57, 160, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.9);
+}
+
+/* Interactive cursor states */
+body.hovering {
+  cursor: pointer;
+}
+
+body.grabbing {
+  cursor: grabbing;
+}
+
+/* Scene-specific overlays */
+.scene-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.scene-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Intro Scene - Hero text */
+.intro-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.intro-text h1 {
+  font-size: 72px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #39a0ff 0%, #9d50ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(57, 160, 255, 0.5)); }
+  50% { filter: drop-shadow(0 0 40px rgba(57, 160, 255, 0.8)); }
+}
+
+.intro-text p {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+}
+
+/* Skills Scene - Hover cards */
+.skill-card {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(57, 160, 255, 0.5);
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 200px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 50;
+}
+
+.skill-card.visible {
+  opacity: 1;
+}
+
+.skill-card h3 {
+  font-size: 18px;
+  color: #39a0ff;
+  margin-bottom: 10px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.skill-card p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.skill-card .proficiency {
+  margin-top: 15px;
+}
+
+.skill-card .proficiency-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.skill-card .proficiency-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #39a0ff, #9d50ff);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* Projects Scene - Project detail modal */
+.project-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: rgba(10, 10, 10, 0.98);
+  border: 2px solid rgba(57, 160, 255, 0.5);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  z-index: 100;
+}
+
+.project-modal.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.project-modal .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.project-modal .close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.project-modal h2 {
+  font-size: 28px;
+  color: #39a0ff;
+  margin-bottom: 15px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.project-modal p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.project-modal .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.project-modal .tag {
+  background: rgba(57, 160, 255, 0.2);
+  color: #39a0ff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  border: 1px solid rgba(57, 160, 255, 0.3);
+}
+
+.project-modal .actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.project-modal .btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.project-modal .btn-primary {
+  background: linear-gradient(135deg, #39a0ff, #9d50ff);
+  color: #fff;
+  border: none;
+}
+
+.project-modal .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(57, 160, 255, 0.4);
+}
+
+.project-modal .btn-secondary {
+  background: transparent;
+  color: #39a0ff;
+  border: 1px solid #39a0ff;
+}
+
+.project-modal .btn-secondary:hover {
+  background: rgba(57, 160, 255, 0.1);
+}
+
+/* Experience Scene - Timeline info */
+.timeline-info {
+  position: fixed;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(57, 160, 255, 0.5);
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 350px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 50;
+}
+
+.timeline-info.visible {
+  opacity: 1;
+}
+
+.timeline-info .year {
+  font-size: 24px;
+  font-weight: 700;
+  color: #39a0ff;
+  margin-bottom: 10px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.timeline-info .role {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.timeline-info .company {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 15px;
+}
+
+.timeline-info .description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* Contact Scene - Contact form overlay */
+.contact-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(10, 10, 10, 0.95);
+  border: 2px solid rgba(57, 160, 255, 0.5);
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  backdrop-filter: blur(20px);
+  z-index: 50;
+}
+
+.contact-form h2 {
+  font-size: 32px;
+  color: #39a0ff;
+  margin-bottom: 30px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #39a0ff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(57, 160, 255, 0.2);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form .submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #39a0ff, #9d50ff);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+.contact-form .submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(57, 160, 255, 0.4);
+}
+
+.contact-form .submit-btn:active {
+  transform: translateY(0);
+}
+
+.contact-form .social-links {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.contact-form .social-links p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 15px;
+}
+
+.contact-form .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-form .social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(57, 160, 255, 0.2);
+  border: 1px solid rgba(57, 160, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #39a0ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.contact-form .social-icon:hover {
+  background: rgba(57, 160, 255, 0.3);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(57, 160, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .intro-text h1 {
+    font-size: 48px;
+  }
+  
+  .intro-text p {
+    font-size: 16px;
+  }
+  
+  .project-modal,
+  .contact-form {
+    padding: 25px;
+    width: 95%;
+  }
+  
+  .timeline-info {
+    left: 20px;
+    right: 20px;
+    max-width: none;
+  }
+  
+  .skill-card {
+    max-width: 280px;
+  }
+}
+
+/* Custom scrollbar for modals */
+.project-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.project-modal::-webkit-scrollbar-thumb {
+  background: rgba(57, 160, 255, 0.5);
+  border-radius: 4px;
+}
+
+.project-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(57, 160, 255, 0.7);
+}
