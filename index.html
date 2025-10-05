@@ -1,568 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Pawan Sharma — Versatile Accountant | Tax Pro | Emerging CFO Leader</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Basic SEO -->
-  <meta name="description" content="MBA (Finance) and PhD scholar with 5+ years in US accounting, taxation, reporting, and automation. Open to finance & IT projects." />
-  <meta name="keywords" content="Pawan Sharma, Accountant, Tax, CFO, US GAAP, QuickBooks, Excel, Automation, Power BI" />
-  <meta name="author" content="Pawan Sharma" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://pawans-ai.github.io/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Pawan Sharma - Versatile Accountant, Tax Pro, Emerging CFO Leader" />
-  <meta property="og:description" content="Short-term bookkeeping, tax prep, financial statements, cleanup, and Excel reporting. Let’s connect!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://pawans-ai.github.io/" />
-  <meta property="og:image" content="https://pawans-ai.github.io/images/profile-image.png" />
-  <meta property="og:site_name" content="Pawan Sharma" />
-
-  <!-- Google verification, favicon, sitemap -->
-  <meta name="google-site-verification" content="SrTT0-WBJ4zAoc36afxf8J1-1u_i89lsGpdKCkCp2K8" />
-  <link rel="icon" type="image/png" href="https://pawans-ai.github.io/images/profile-image.png" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://pawans-ai.github.io/sitemap.xml" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
-
-  <!-- Your theme CSS -->
-  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
-  <link rel="stylesheet" href="css/animate.css" />
-  <link rel="stylesheet" href="css/owl.carousel.min.css" />
-  <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-  <link rel="stylesheet" href="css/magnific-popup.css" />
-  <link rel="stylesheet" href="css/aos.css" />
-  <link rel="stylesheet" href="css/ionicons.min.css" />
-  <link rel="stylesheet" href="css/flaticon.css" />
-  <link rel="stylesheet" href="css/icomoon.css" />
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Swiper CSS (logos marquee) -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pawan Sharma - Portfolio</title>
   <style>
-    /* Tweaks */
-    .about-mf .box-shadow-full { padding-top: 4rem; padding-bottom: 4rem; }
-    .about-mf .about-img { margin-bottom: 2rem; }
-    .skill-mf .progress { margin: .5rem 0 1.2rem 0; border-radius: 0; height: .7rem; }
-    .skill-mf .progress .progress-bar { height: .7rem; background-color: #396eff; }
-
-    /* Typing line in hero */
-    #typing-animation { font-size: 30px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; }
-
-    /* Swiper marquee */
-    .swiper { width: 100%; padding: 20px 0; }
-    .swiper-wrapper { transition-timing-function: linear !important; }
-    .swiper-slide { width: auto; text-align: center; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 0 20px; }
-    .swiper-slide img { height: 60px; object-fit: contain; margin-bottom: 8px; display: block; }
-    .logo-name { font-size: 14px; margin: 0; color: #999393; }
-
-    /* Full-3D black panel */
-    #hero3d { width: 100%; height: 520px; display: block; background: #000; border-radius: 16px; }
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .loader-container {
+      text-align: center;
+    }
+    
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(57, 160, 255, 0.3);
+      border-top: 3px solid #39a0ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .message {
+      font-size: 14px;
+      color: #888;
+      letter-spacing: 1px;
+    }
   </style>
 </head>
-
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" style="background:#000;">
-
-  <!-- NAV -->
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="/">
-        <div style="line-height: 1.2;">
-          <strong>Pawan Sharma</strong><br />
-          <small>B.Com, M.Com, CA Inter, AFSP</small>
-        </div>
-      </a>
-      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
-
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav nav ml-auto">
-          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-          <li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
-          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section id="home-section" class="hero">
-    <div class="home-slider owl-carousel">
-      <div class="slider-item">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-            <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.jpg);">
-              <div class="overlay"></div>
-            </div>
-            <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-              <div class="text">
-                <span class="subheading" style="font-size:24px;">Hello!</span>
-                <h1 class="mb-4 mt-3">I'm <span>Pawan Sharma</span></h1>
-
-                <span id="typing-animation"></span>
-                <script>
-                  (function(){
-                    const el = document.getElementById('typing-animation');
-                    const texts = ['Detail Oriented','Problem Solver','Quality Oriented','Quick Learner','Enthusiastic'];
-                    let i=0, j=0, erasing=false;
-                    function type() {
-                      const t = texts[i];
-                      if(!erasing && j<=t.length){ el.textContent = t.slice(0, j++); }
-                      else if(erasing && j>=0){ el.textContent = t.slice(0, j--); }
-                      if(j===t.length+1){ erasing=true; setTimeout(type, 900); return; }
-                      if(erasing && j===0){ erasing=false; i=(i+1)%texts.length; }
-                      setTimeout(type, erasing?60:120);
-                    }
-                    type();
-                  })();
-                </script>
-
-                <br><br>
-                <h2>Versatile Accountant, TaxPro, Emerging CFO Leader</h2>
-                <p>
-                  <a href="https://www.linkedin.com/in/pawan-sharma-753ab5323/" class="btn btn-primary py-3 px-4" target="_blank" rel="noopener">LINKEDIN</a>
-                  <a href="https://github.com/SharmaPawan" class="btn btn-white btn-outline-white py-3 px-4" target="_blank" rel="noopener">My works</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- /slider-item -->
-    </div><!-- /home-slider -->
-  </section>
-
-  <!-- FULL 3D SCENE (black panel) -->
-  <section class="container py-5">
-    <canvas id="hero3d" aria-label="Decorative 3D visual"></canvas>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    <div class="container">
-      <div class="row d-flex align-items-stretch">
-        <!-- LEFT -->
-        <div class="col-md-6 col-lg-6 d-flex flex-column">
-          <div class="img-about w-100 js-fullheight" style="background-image:url('images/aboutme1.png'); background-size:cover; background-position:center;">
-            <div class="overlay"></div>
-          </div>
-          <ul class="about-info mt-5 px-md-0 px-2 d-none d-lg-block">
-            <li class="d-flex"><span>Languages:</span> <span>English, Hindi, Gujarati</span></li>
-            <li class="d-flex"><span>Interests:</span> <span>Exploring Technologies, Dancing, Teaching</span></li>
-            <li class="d-flex"><span>Address:</span> <span>Isanpur, Ahmedabad, Gujarat, India</span></li>
-          </ul>
-        </div>
-        <!-- RIGHT -->
-        <div class="col-md-6 col-lg-6 pl-lg-5 pb-5">
-          <div class="row justify-content-start pb-3">
-            <div class="col-md-12 heading-section ftco-animate">
-              <h1 class="big">About</h1>
-              <h2 class="mb-4">About Me</h2>
-              <p style="text-align:justify;">
-                I’m Pawan Sharma, a detail-oriented professional with 5+ years of experience in US accounting, taxation, and financial reporting.
-              </p>
-              <p style="text-align:justify;"><strong>Key Skills & Expertise:</strong></p>
-              <ul style="padding-left:1.2rem; margin-bottom:1rem;">
-                <li>Full-cycle bookkeeping & financial reporting</li>
-                <li>AP processing, vendor reconciliations, & statement matching</li>
-                <li>Bank, credit card, lease, & intercompany reconciliations</li>
-                <li>Month-end close, accruals, prepaid expenses, & depreciation</li>
-                <li>US GAAP compliance & ASC standards</li>
-                <li>US Taxation: Income, Payroll, & Sales Tax Filings</li>
-                <li>Payroll processing & job cost analysis</li>
-                <li>Dashboards for ratio analysis & trends</li>
-              </ul>
-              <p style="text-align:justify;">
-                I specialize in automation with Power Automate, Excel macros, and Zoho Flow; I also lead teams, onboard new hires, and build KPI-driven processes.
-              </p>
-              <ul class="about-info mt-4 d-lg-none" style="padding-left:0; margin-left:0;">
-                <li class="d-flex"><span>Languages:</span> <span>English, Hindi, Gujarati</span></li>
-                <li class="d-flex"><span>Interests:</span> <span>Exploring Technologies, Dancing, Teaching</span></li>
-                <li class="d-flex"><span>Address:</span> <span>Isanpur, Ahmedabad, Gujarat, India</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- /RIGHT -->
-      </div>
-    </div>
-  </section>
-
-  <!-- SOFTWARE PROFICIENCY (logos marquee) -->
-  <div class="container mt-5">
-    <div class="text-center mb-4">
-      <h3><span style="color:#396eff;">Software</span> Proficiency</h3>
-    </div>
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <!-- Your original logos (all preserved) -->
-        <div class="swiper-slide"><div><img src="images/logo1.png" alt="CCH Axcess Tax" /><p class="logo-name">CCH Axcess Tax</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo2.jpg" alt="Intuit Lacerte" /><p class="logo-name">Intuit Lacerte</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo3.png" alt="Intuit ProConnect" /><p class="logo-name">Intuit ProConnect</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo4.png" alt="Intuit ProSeries" /><p class="logo-name">Intuit ProSeries</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo5.png" alt="TaxSlayer" /><p class="logo-name">TaxSlayer</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo6.png" alt="UltraTax CS" /><p class="logo-name">UltraTax CS</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo7.png" alt="Drake Tax" /><p class="logo-name">Drake Tax</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo8.png" alt="Canopy Tax" /><p class="logo-name">Canopy Tax</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo9.png" alt="ClickUp" /><p class="logo-name">ClickUp</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo10.png" alt="Acumatica" /><p class="logo-name">Acumatica</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo11.png" alt="Intuit QuickBooks" /><p class="logo-name">Intuit QuickBooks</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo12.png" alt="Tally ERP 9" /><p class="logo-name">Tally ERP 9</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo13.png" alt="Tally Prime" /><p class="logo-name">Tally Prime</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo14.png" alt="NetSuite" /><p class="logo-name">NetSuite</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo15.png" alt="GSuite" /><p class="logo-name">GSuite</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo16.png" alt="Microsoft 365" /><p class="logo-name">Microsoft 365</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo17.png" alt="ShareFile" /><p class="logo-name">ShareFile</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo18.png" alt="SurePrep" /><p class="logo-name">SurePrep</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo19.png" alt="Learnyst LMS" /><p class="logo-name">Learnyst LMS</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo20.png" alt="Zoho" /><p class="logo-name">Zoho</p></div></div>
-        <div class="swiper-slide"><div><img src="images/logo21.png" alt="ChatGPT" /><p class="logo-name">ChatGPT</p></div></div>
-      </div>
-    </div>
+<body>
+  <div class="loader-container">
+    <div class="loader"></div>
+    <div class="message">Preparing your experience...</div>
   </div>
 
-  <!-- EDUCATION -->
-  <section class="ftco-section ftco-no-pb" id="education-section">
-    <div class="container">
-      <div class="row justify-content-center pb-5">
-        <div class="col-md-10 heading-section text-center ftco-animate">
-          <h1 class="big big-2">Education</h1>
-          <h2 class="mb-4">Education</h2>
-        </div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-          <div class="resume-wrap ftco-animate text-center">
-            <span class="date">2016–2018</span>
-            <h2>Bachelor of Commerce (B.Com)</h2>
-            <span class="position">Gujarat Commerce College</span>
-            <p class="mt-4">Percentage: 72%</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="resume-wrap ftco-animate text-center">
-            <span class="date">2019–2021</span>
-            <h2>Master of Commerce (M.Com)</h2>
-            <span class="position">Gujarat Commerce College</span>
-            <p class="mt-4">Percentage: 65%</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-          <div class="resume-wrap ftco-animate text-center">
-            <span class="date">2016–2019</span>
-            <h2>CA Inter</h2>
-            <span class="position">ICAI</span>
-            <p class="mt-4">Percentage: 50%</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row justify-content-center mt-4">
-        <div class="col-md-6 text-center ftco-animate">
-          <p>
-            <a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view" class="btn btn-primary py-4 px-5" target="_blank" rel="noopener">Download CV</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GITHUB CTA -->
-  <section class="ftco-about img ftco-section ftco-no-pb" id="project-section">
-    <div class="ftco-section ftco-hireme img margin-top" style="background-image:url(images/bg_10.jpg)">
-      <div class="row justify-content-center">
-        <div class="col-md-7 ftco-animate text-center">
-          <h2>More projects on <span>Github</span></h2>
-          <div class="heading">
-            <h4>I love to solve business problems & uncover hidden data stories</h4><br>
-            <p><a href="https://github.com/SharmaPawan" class="btn btn-primary py-3 px-5" target="_blank" rel="noopener">GitHub</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-    <div class="container">
-      <div class="row justify-content-center mb-5 pb-3">
-        <div class="col-md-7 heading-section text-center ftco-animate">
-          <h1 class="big big-2">Contact</h1>
-          <h2 class="mb-4">Contact Me</h2>
-          <p>Below are the details to reach me!</p>
-        </div>
-      </div>
-
-      <div class="row d-flex contact-info mb-5">
-        <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          <div class="align-self-stretch box p-4 text-center">
-            <div class="icon d-flex align-items-center justify-content-center"><span class="icon-map-signs"></span></div>
-            <h3 class="mb-4">Address</h3>
-            <p>Gujarat, India</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          <div class="align-self-stretch box p-4 text-center">
-            <div class="icon d-flex align-items-center justify-content-center"><span class="icon-phone2"></span></div>
-            <h3 class="mb-4">Contact Number</h3>
-            <p><a href="tel:+918980477928">+91 89804-77928</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          <div class="align-self-stretch box p-4 text-center">
-            <div class="icon d-flex align-items-center justify-content-center"><span class="icon-paper-plane"></span></div>
-            <h3 class="mb-4">Email Address</h3>
-            <p><a href="mailto:pawansharma0805@gmail.com">pawansharma0805@gmail.com</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          <div class="align-self-stretch box p-4 text-center">
-            <div class="icon d-flex align-items-center justify-content-center"><span class="icon-globe"></span></div>
-            <h3 class="mb-4"><a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view" target="_blank" rel="noopener">Download CV</a></h3>
-            <p><a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view" target="_blank" rel="noopener">CV Link</a></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <br><br>
-        <div class="row justify-content-center">
-          <div class="col-md-7 ftco-animate text-center">
-            <h2>Have a <span>Question?</span> <a href="contact.html" class="btn btn-primary py-3 px-5">Click Here</a></h2>
-          </div>
-        </div>
-        <br>
-        <ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
-          <li class="ftco-animate normal-txt">Find me on</li>
-          <li class="ftco-animate"><a href="https://www.youtube.com/@weLearner_/videos" target="_blank" rel="noopener"><span class="icon-youtube"></span></a></li>
-          <li class="ftco-animate"><a href="https://www.linkedin.com/in/pawan-sharma-753ab5323/" target="_blank" rel="noopener"><span class="icon-linkedin"></span></a></li>
-          <li class="ftco-animate"><a href="https://www.instagram.com/pawansharma_founder/" target="_blank" rel="noopener"><span class="icon-instagram"></span></a></li>
-        </ul>
-        <br>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="ftco-footer ftco-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <p>
-            Copyright
-            <script>document.write(new Date().getFullYear());</script>
-            &copy; All rights reserved | This webpage is made
-            <i class="icon-heart color-danger" aria-hidden="true"></i> by
-            <a href="https://pawans-ai.github.io/" target="_blank" rel="noopener">Pawan</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Loader -->
-  <div id="ftco-loader" class="show fullscreen">
-    <svg class="circular" width="48px" height="48px">
-      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/>
-    </svg>
-  </div>
-
-  <!-- JS: your theme -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="js/main.js"></script>
-
-  <!-- Swiper + continuous marquee init -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
-    // Only one init for the logos slider
-    (function(){
-      if (window.softwareSwiper && window.softwareSwiper.destroy) {
-        window.softwareSwiper.destroy(true, true);
+    /**
+     * Smart Router - Detects device capabilities and routes to appropriate experience
+     */
+    (function() {
+      // Check WebGL support
+      function hasWebGL() {
+        try {
+          const canvas = document.createElement('canvas');
+          const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+          return !!gl;
+        } catch(e) {
+          return false;
+        }
       }
-      window.softwareSwiper = new Swiper('.mySwiper', {
-        loop: true,
-        allowTouchMove: false,
-        slidesPerView: 'auto',
-        spaceBetween: 24,
-        speed: 6000,        // slower = smoother; increase to go faster
-        autoplay: { delay: 0, disableOnInteraction: false }
-      });
+
+      // Check if mobile device
+      function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      }
+
+      // Check performance tier
+      function getPerformanceTier() {
+        const memory = navigator.deviceMemory || 4; // GB, defaults to 4
+        const cores = navigator.hardwareConcurrency || 2;
+        
+        if (memory >= 8 && cores >= 4) return 'high';
+        if (memory >= 4 && cores >= 2) return 'medium';
+        return 'low';
+      }
+
+      // Decide which version to load
+      function route() {
+        const webglSupported = hasWebGL();
+        const mobile = isMobile();
+        const tier = getPerformanceTier();
+        
+        // Log for debugging (remove in production)
+        console.log('Device Check:', { webglSupported, mobile, tier });
+        
+        // Routing logic
+        if (!webglSupported) {
+          // No WebGL - use legacy HTML version
+          console.log('Routing to: Legacy (no WebGL)');
+          window.location.href = 'index-legacy.html';
+        } else if (mobile && tier === 'low') {
+          // Low-end mobile - use legacy for better UX
+          console.log('Routing to: Legacy (low-end mobile)');
+          window.location.href = 'index-legacy.html';
+        } else {
+          // Good support - load 3D experience
+          console.log('Routing to: 3D Experience');
+          window.location.href = 'index-3d.html';
+        }
+      }
+
+      // Run routing after a brief moment (smoother UX)
+      setTimeout(route, 500);
     })();
-  </script>
-
-  <!-- Three.js CDN -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-
-  <!-- FULL 3D SCENE: stars + wireframe globe + satellites + torus + grid + parallax -->
-  <script>
-  (function(){
-    const canvas = document.getElementById('hero3d');
-    if(!canvas) return;
-
-    // Renderer
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:false, powerPreference:'high-performance' });
-    renderer.setClearColor(0x000000, 1);
-
-    // Scene & Camera
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 200);
-    camera.position.set(0, 1.2, 6);
-
-    // Groups
-    const world = new THREE.Group();
-    const stage = new THREE.Group();
-    const focal = new THREE.Group();
-    scene.add(world, stage, focal);
-
-    // Lights
-    const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(3,4,5);
-    const rim = new THREE.DirectionalLight(0x66aaff, 0.7); rim.position.set(-4,-2,-5);
-    const fill = new THREE.AmbientLight(0x222222, 0.7);
-    scene.add(key, rim, fill);
-
-    // Starfield
-    const STAR_COUNT = 2000;
-    const pos = new Float32Array(STAR_COUNT * 3);
-    for (let i=0;i<STAR_COUNT;i++){
-      const r = THREE.MathUtils.randFloat(20, 60);
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(THREE.MathUtils.randFloatSpread(2));
-      pos[i*3+0] = r * Math.sin(phi) * Math.cos(theta);
-      pos[i*3+1] = r * Math.cos(phi) * 0.6;
-      pos[i*3+2] = r * Math.sin(phi) * Math.sin(theta);
-    }
-    const starGeo = new THREE.BufferGeometry();
-    starGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    const starMat = new THREE.PointsMaterial({ size: 0.06, transparent:true, opacity: 0.9, depthWrite:false });
-    const stars = new THREE.Points(starGeo, starMat);
-    world.add(stars);
-
-    // Grid
-    const grid = new THREE.GridHelper(60, 60, 0x222222, 0x111111);
-    grid.material.opacity = 0.35;
-    grid.material.transparent = true;
-    grid.position.y = -2.2;
-    world.add(grid);
-
-    // Wireframe globe
-    const globe = new THREE.Mesh(
-      new THREE.SphereGeometry(1.35, 32, 24),
-      new THREE.MeshBasicMaterial({ color: 0x3aa0ff, wireframe: true, transparent:true, opacity: 0.55 })
-    );
-    stage.add(globe);
-
-    // Satellites
-    const sats = new THREE.Group(); stage.add(sats);
-    const SAT_COUNT = 6;
-    for (let i=0;i<SAT_COUNT;i++){
-      const sat = new THREE.Mesh(
-        new THREE.SphereGeometry(0.08, 16, 16),
-        new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0x3aa0ff, metalness:0.4, roughness:0.3 })
-      );
-      sat.userData = { r: 2.1 + Math.random()*0.6, spd: 0.4 + Math.random()*0.6, tilt: THREE.MathUtils.degToRad(THREE.MathUtils.randFloat(-35,35)) };
-      sats.add(sat);
-    }
-
-    // Centerpiece
-    const torusKnot = new THREE.Mesh(
-      new THREE.TorusKnotGeometry(0.7, 0.23, 220, 28),
-      new THREE.MeshStandardMaterial({ color: 0xffffff, metalness:0.85, roughness:0.2 })
-    );
-    focal.add(torusKnot);
-
-    // Back ring for depth
-    const ring = new THREE.Mesh(
-      new THREE.RingGeometry(1.8, 2.4, 64),
-      new THREE.MeshBasicMaterial({ color: 0x0a0a0a, side: THREE.DoubleSide, transparent:true, opacity:0.8 })
-    );
-    ring.rotation.x = Math.PI/2;
-    ring.position.z = -0.2;
-    stage.add(ring);
-
-    // Parallax
-    let targetRX = 0, targetRY = 0;
-    canvas.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const x = (e.clientX - rect.left)/rect.width * 2 - 1;
-      const y = (e.clientY - rect.top)/rect.height * 2 - 1;
-      targetRY = x * 0.35;
-      targetRX = -y * 0.2;
-    }, {passive:true});
-
-    function resize(){
-      const w = canvas.clientWidth, h = canvas.clientHeight;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      renderer.setPixelRatio(dpr);
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-    }
-    window.addEventListener('resize', resize, {passive:true});
-    resize();
-
-    let t0 = performance.now();
-    function animate(now){
-      requestAnimationFrame(animate);
-      const dt = (now - t0)/1000;
-
-      world.rotation.y = dt * 0.02;
-      globe.rotation.y = dt * 0.25;
-
-      sats.children.forEach((sat, i)=>{
-        const u = dt * sat.userData.spd + i * (Math.PI*2/SAT_COUNT);
-        const r = sat.userData.r;
-        sat.position.set(Math.cos(u)*r, Math.sin(u*1.3)*0.6, Math.sin(u)*r);
-        sat.position.applyAxisAngle(new THREE.Vector3(1,0,0), sat.userData.tilt);
-      });
-
-      torusKnot.rotation.x += 0.007;
-      torusKnot.rotation.y += 0.011;
-
-      const camR = 6 + Math.sin(dt * 0.4) * 0.2;
-      camera.position.x = Math.sin(dt * 0.12) * 0.8;
-      camera.position.y = 1.2 + Math.sin(dt * 0.23) * 0.15;
-      camera.position.z = camR;
-      camera.lookAt(0, 0.3, 0);
-
-      stage.rotation.y += (targetRY - stage.rotation.y) * 0.05;
-      stage.rotation.x += (targetRX - stage.rotation.x) * 0.05;
-      focal.rotation.y += (targetRY*1.2 - focal.rotation.y) * 0.06;
-      focal.rotation.x += (targetRX*1.2 - focal.rotation.x) * 0.06;
-
-      starMat.size = 0.055 + (Math.sin(now*0.002)+1)*0.015;
-
-      renderer.render(scene, camera);
-    }
-    requestAnimationFrame(animate);
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) renderer.setAnimationLoop(null);
-      else requestAnimationFrame(animate);
-    });
-  })();
   </script>
 </body>
 </html>
