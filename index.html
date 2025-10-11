@@ -1024,6 +1024,20 @@
       ensureThreeLoaded(function(){ /* js/experience/main.js handles init */ });
     })();
   </script>
+  <script>
+    // Fallback: hide the 3D loader if the experience fails to boot
+    window.addEventListener('load', function(){
+      setTimeout(function(){
+        var loading = document.getElementById('loading-screen');
+        if (loading && loading.style.display !== 'none' && !loading.classList.contains('hidden')) {
+          loading.classList.add('hidden');
+          setTimeout(function(){
+            loading.style.display = 'none';
+          }, 800);
+        }
+      }, 4000);
+    });
+  </script>
     
   </body>
 </html>
