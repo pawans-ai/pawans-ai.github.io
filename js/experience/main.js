@@ -556,11 +556,24 @@ class Experience3D {
   }
 }
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
+// Initialize when DOM is ready with guard so the page stays usable even if WebGL fails
+function bootstrapExperience() {
+  try {
     new Experience3D();
-  });
+  } catch (error) {
+    console.error('Failed to initialize Experience3D:', error);
+    const loading = document.getElementById('loading-screen');
+    if (loading) {
+      loading.classList.add('hidden');
+      setTimeout(() => {
+        loading.style.display = 'none';
+      }, 800);
+    }
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootstrapExperience);
 } else {
-  new Experience3D();
+  bootstrapExperience();
 }
