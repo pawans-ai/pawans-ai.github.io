@@ -217,54 +217,6 @@
       pointer-events: auto;
     }
 
-    #loading-screen {
-      position: fixed;
-      inset: 0;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      transition: opacity 0.8s;
-    }
-
-    #loading-screen.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .loader {
-      width: 60px;
-      height: 60px;
-      border: 3px solid rgba(57, 160, 255, 0.3);
-      border-top: 3px solid #39a0ff;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    #loading-text {
-      margin-top: 20px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      font-weight: 600;
-      font-family: "Poppins", sans-serif;
-      color: #39a0ff;
-    }
-
-    #loading-progress {
-      margin-top: 10px;
-      font-size: 24px;
-      font-weight: 700;
-      color: #fff;
-    }
-
     #scene-title {
       position: fixed;
       top: 50%;
@@ -379,12 +331,6 @@
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
     <!-- 3D experience layers -->
-    <div id="loading-screen">
-      <div class="loader"></div>
-      <div id="loading-text">LOADING EXPERIENCE</div>
-      <div id="loading-progress">0%</div>
-    </div>
-
     <canvas id="canvas3d"></canvas>
     <div id="scroll-container"></div>
 
@@ -1023,20 +969,6 @@
       }
       ensureThreeLoaded(function(){ /* js/experience/main.js handles init */ });
     })();
-  </script>
-  <script>
-    // Fallback: hide the 3D loader if the experience fails to boot
-    window.addEventListener('load', function(){
-      setTimeout(function(){
-        var loading = document.getElementById('loading-screen');
-        if (loading && loading.style.display !== 'none' && !loading.classList.contains('hidden')) {
-          loading.classList.add('hidden');
-          setTimeout(function(){
-            loading.style.display = 'none';
-          }, 800);
-        }
-      }, 4000);
-    });
   </script>
     
   </body>
