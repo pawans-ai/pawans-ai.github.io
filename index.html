@@ -1,354 +1,1029 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pawan Sharma - 3D Portfolio Experience</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pawan Sharma - Versatile Accountant | Tax Pro | Emerging CFO Leader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <!-- SEO -->
-  <meta name="description" content="Immersive 3D portfolio showcasing Pawan Sharma's expertise in accounting, taxation, and financial automation" />
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="Pawan Sharma is an MBA Finance graduate and PhD scholar specializing in financial management, IT project management, and business development. Available for finance and IT-related roles." />
+    <meta name="keywords" content="Pawan Sharma, Sharma Pawan, B.Com, M.Com, CA Inter, AFSP, EA, Financial Analyst, CPA, Automation, Financial Controller ,Pawan " />
+    <meta name="author" content="Pawan Sharma" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="language" content="English" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+    <!-- Open Graph Meta Tags (for Social Media) -->
+    <meta property="og:title" content="Pawan Sharma - Versatile Accountant, Tax Pro, Emerging CFO Leader" />
+    <meta property="og:description" content="I am open to short-term bookkeeping, tax preparation, financial statement preparation, data cleanup, and Excel reporting projects. If you need a detail-oriented accounting and tax professional for project-based work, let's connect!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pawans-ai.github.io/" />
+    <meta property="og:image" content="https://pawans-ai.github.io/images/profile-image.png" />
+    <meta property="og:site_name" content="Pawan Sharma" />
 
-  <!-- Swiper CSS (for Software Proficiency marquee) -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Canonical URL (Helps Prevent Duplicate Content Issues) -->
+    <link rel="canonical" href="https://pawans-ai.github.io/" />
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;background:#000;color:#fff;overflow-x:hidden}
-
-    /* 3D Canvas (always behind) */
-    #canvas3d{position:fixed;inset:0;width:100%;height:100vh;z-index:1}
-
-    /* Scroll driver for 3D scenes */
-    #scroll-container{position:relative;height:400vh;z-index:2;pointer-events:none}
-
-    /* Overlay UI for the 3D experience */
-    #ui-overlay{position:fixed;inset:0;z-index:10;pointer-events:none}
-    #ui-overlay>*{pointer-events:auto}
-
-    /* Loader */
-    #loading-screen{position:fixed;inset:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;transition:opacity .8s}
-    #loading-screen.hidden{opacity:0;pointer-events:none}
-    .loader{width:60px;height:60px;border:3px solid rgba(57,160,255,.3);border-top:3px solid #39a0ff;border-radius:50%;animation:spin 1s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    #loading-text{margin-top:20px;font-family:'Orbitron',sans-serif;font-size:14px;color:#39a0ff;letter-spacing:2px}
-    #loading-progress{margin-top:10px;font-size:24px;font-weight:700;color:#fff}
-
-    /* Scene Title */
-    #scene-title{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Orbitron',sans-serif;font-size:48px;font-weight:900;text-align:center;opacity:0;pointer-events:none;z-index:15;text-shadow:0 0 30px rgba(57,160,255,.8);transition:opacity .5s}
-    #scene-title.visible{opacity:1}
-
-    /* Navigation dots */
-    #nav-dots{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:15px}
-    .nav-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s;position:relative}
-    .nav-dot:hover{background:rgba(57,160,255,.6);transform:scale(1.2)}
-    .nav-dot.active{background:#39a0ff;box-shadow:0 0 15px rgba(57,160,255,.8)}
-    .nav-dot::after{content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:12px;color:#fff;white-space:nowrap;opacity:0;transition:opacity .3s}
-    .nav-dot:hover::after{opacity:1}
-
-    /* Scroll hint */
-    #scroll-hint{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);font-size:14px;color:rgba(255,255,255,.6);display:flex;flex-direction:column;align-items:center;gap:10px;animation:bounce 2s infinite;z-index:15}
-    @keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
-    #scroll-hint .arrow{font-size:24px}
-
-    /* === CONTENT ON TOP OF 3D === */
-    #site-content{position:relative;z-index:5;pointer-events:auto}
-    section{min-height:100vh;display:flex;align-items:center}
-    .container{width:min(1200px,92%);margin:0 auto}
-
-    /* Landing content panel */
-    .landing-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;
-      background:rgba(0,0,0,.55);backdrop-filter:blur(8px);
-      border:1px solid rgba(57,160,255,.25);border-radius:18px;padding:32px}
-    .landing-title{font-family:'Orbitron',sans-serif;font-size:42px;font-weight:900;line-height:1.1;text-shadow:0 0 18px rgba(57,160,255,.4)}
-    .landing-sub{color:rgba(255,255,255,.8);margin-top:10px}
-    .cta-row{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:600;text-decoration:none}
-    .btn-primary{background:#39a0ff;color:#000}
-    .btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
-    .landing-img{width:100%;max-height:380px;object-fit:cover;border-radius:14px;box-shadow:0 0 40px rgba(57,160,255,.15)}
-    .deck{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-    .chip{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 12px;font-size:13px;color:rgba(255,255,255,.85)}
-
-    /* About section */
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-    .card{background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:1px solid rgba(57,160,255,.25);border-radius:18px;padding:28px}
-    .h2{font-family:'Orbitron',sans-serif;font-size:32px;margin-bottom:10px}
-    .muted{color:rgba(255,255,255,.75)}
-    .about-img{width:100%;border-radius:12px;box-shadow:0 0 40px rgba(57,160,255,.15)}
-
-    /* Software Proficiency marquee */
-    .logos-wrap{padding:30px 0}
-    .swiper{width:100%}
-    .swiper-wrapper{transition-timing-function:linear !important}
-    .swiper-slide{width:auto;text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:0 20px}
-    .swiper-slide img{height:60px;object-fit:contain;margin-bottom:8px;display:block}
-    .logo-name{font-size:14px;margin:0;color:#cfcfcf}
-
-    /* Education cards */
-    .edu-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .edu-card{background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:1px solid rgba(57,160,255,.25);border-radius:16px;padding:22px;text-align:center}
-    .edu-card .date{color:#39a0ff;font-weight:700}
-    .edu-card h3{margin:8px 0 4px}
-    .edu-card .pos{color:#bdbdbd}
-
-    /* CTA band */
-    .cta-band{background:url('images/bg_1.jpg') center/cover no-repeat; position:relative}
-    .cta-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.85))}
-    .cta-inner{position:relative}
-
-    /* Contact grid */
-    .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    .contact-card{background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:1px solid rgba(57,160,255,.25);border-radius:16px;padding:22px;text-align:center}
-
-    /* Footer */
-    footer{padding:28px 0;text-align:center;color:#cfcfcf;border-top:1px solid rgba(57,160,255,.2)}
-
-    @media(max-width:992px){
-      .landing-panel{grid-template-columns:1fr}
-      .about-grid{grid-template-columns:1fr}
-      .edu-row{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr 1fr}
-      section{min-height:auto;padding:72px 0}
-      #scroll-container{height:300vh}
+    <!-- Schema Markup (Structured Data for Google Search) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pawan Sharma",
+      "url": "https://pawans-ai.github.io/",
+      "image": "https://pawans-ai.github.io/images/profile-image.png",
+      "jobTitle": "Versatile Accountant, Tax Pro, Emerging CFO Leader",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "US Accounting & Taxation"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/pawan-sharma-753ab5323/",
+        "https://pawans-ai.github.io/"
+      ]
     }
-    @media(max-width:520px){
-      .contact-grid{grid-template-columns:1fr}
+    </script>
+
+    <!-- Favicon (Small Icon in Browser Tab) -->
+    <link rel="icon" type="image/png" href="https://pawans-ai.github.io/images/profile-image.png" />
+
+    <!-- Sitemap (For Better Indexing by Search Engines) -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://pawans-ai.github.io/sitemap.xml" />
+
+    <meta name="google-site-verification" content="SrTT0-WBJ4zAoc36afxf8J1-1u_i89lsGpdKCkCp2K8" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/aos.css" />
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <style>
+    /*======================================
+    //--//-->   ABOUT
+    ======================================*/
+
+    .about-mf .box-shadow-full {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
-  </style>
-</head>
-<body>
-  <!-- Loader -->
-  <div id="loading-screen">
-    <div class="loader"></div>
-    <div id="loading-text">LOADING EXPERIENCE</div>
-    <div id="loading-progress">0%</div>
-  </div>
 
-  <!-- 3D Canvas -->
-  <canvas id="canvas3d"></canvas>
+    .about-mf .about-img {
+      margin-bottom: 2rem;
+    }
 
-  <!-- Scroll driver for Experience3D (keeps the 3D scenes responding to scroll) -->
-  <div id="scroll-container"></div>
+    .about-mf .about-img img {
+      margin-left: 10px;
+    }
 
-  <!-- Overlay UI (title, dots, hint) -->
-  <div id="ui-overlay">
-    <div id="scene-title"></div>
-    <div id="nav-dots">
-      <div class="nav-dot active" data-scene="0" data-label="Welcome"></div>
-      <div class="nav-dot" data-scene="1" data-label="Skills"></div>
-      <div class="nav-dot" data-scene="2" data-label="Projects"></div>
-      <div class="nav-dot" data-scene="3" data-label="Experience"></div>
-      <div class="nav-dot" data-scene="4" data-label="Contact"></div>
+
+    .skill-mf .progress {
+      /* background-color: #396eff
+      ; */
+      margin: 0.5rem 0 1.2rem 0;
+      border-radius: 0;
+      height: 0.7rem;
+    }
+
+    .skill-mf .progress .progress-bar {
+      height: 0.7rem;
+      background-color: #396eff;
+    }
+
+
+    /* Animation styles */
+    #typing-animation {
+      position: relative;
+      font-size: 30px;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 3s steps(20, end) infinite;
+    }
+
+    #typing-animation:before {
+      content: "";
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #ccc;
+      animation: typing-cursor 0.5s ease-in-out infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes typing-cursor {
+      from {
+        width: 5px;
+      }
+      to {
+        width: 0;
+      }
+    }
+
+
+    /* project image zoom effect */
+    .zoom-effect {
+      overflow: hidden;
+      transition: transform 0.3s ease-out;
+    }
+
+    .zoom-effect:hover {
+      transform: scale(1.1);
+    }
+
+    /* Swiper marquee styling */
+    .swiper {
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .swiper-wrapper {
+      transition-timing-function: linear !important;
+    }
+
+    .swiper-slide {
+      width: auto;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 20px;
+    }
+
+    .swiper-slide img {
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
+    .logo-name {
+      font-size: 14px;
+      margin: 0;
+      color: #999393;
+    }
+
+    /* 3D experience overlay */
+    body {
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    #canvas3d {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    #scroll-container {
+      position: relative;
+      height: 400vh;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    #ui-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    #ui-overlay > * {
+      pointer-events: auto;
+    }
+
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: opacity 0.8s;
+    }
+
+    #loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(57, 160, 255, 0.3);
+      border-top: 3px solid #39a0ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #loading-text {
+      margin-top: 20px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      font-family: "Poppins", sans-serif;
+      color: #39a0ff;
+    }
+
+    #loading-progress {
+      margin-top: 10px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    #scene-title {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "Poppins", sans-serif;
+      font-size: 46px;
+      font-weight: 700;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 15;
+      text-shadow: 0 0 30px rgba(57, 160, 255, 0.8);
+      transition: opacity 0.5s;
+    }
+
+    #scene-title.visible {
+      opacity: 1;
+    }
+
+    #nav-dots {
+      position: fixed;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .nav-dot:hover {
+      background: rgba(57, 160, 255, 0.6);
+      transform: scale(1.2);
+    }
+
+    .nav-dot.active {
+      background: #39a0ff;
+      box-shadow: 0 0 15px rgba(57, 160, 255, 0.8);
+    }
+
+    .nav-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: #fff;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .nav-dot:hover::after {
+      opacity: 1;
+    }
+
+    #scroll-hint {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      animation: bounce 2s infinite;
+      z-index: 15;
+    }
+
+    #scroll-hint .arrow {
+      font-size: 24px;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    #site-content {
+      position: relative;
+      z-index: 5;
+    }
+
+    @media (max-width: 992px) {
+      #scroll-container {
+        height: 300vh;
+      }
+    }
+    </style>
+  </head>
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <!-- 3D experience layers -->
+    <div id="loading-screen">
+      <div class="loader"></div>
+      <div id="loading-text">LOADING EXPERIENCE</div>
+      <div id="loading-progress">0%</div>
     </div>
-    <div id="scroll-hint">
-      <span>Scroll to explore</span>
-      <span class="arrow">&#x2193;</span>
-    </div>
-  </div>
 
-  <!-- ===================== CONTENT ON THE 3D LANDING ===================== -->
-  <main id="site-content">
-    <!-- Landing content (sits directly on the 3D) -->
-    <section id="landing" aria-label="Intro">
-      <div class="container">
-        <div class="landing-panel">
-          <div>
-            <h1 class="landing-title">Pawan Sharma</h1>
-            <p class="landing-sub">Versatile Accountant &bull; Tax Pro &bull; Emerging CFO Leader</p>
-            <div class="deck">
-              <span class="chip">US GAAP</span>
-              <span class="chip">Full-cycle Bookkeeping</span>
-              <span class="chip">Tax Filings</span>
-              <span class="chip">Automation</span>
-              <span class="chip">Dashboards</span>
-              <span class="chip">Month-end Close</span>
-            </div>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="https://www.linkedin.com/in/pawan-sharma-753ab5323/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-              <a class="btn btn-ghost" href="https://github.com/SharmaPawan" target="_blank" rel="noopener">View GitHub</a>
-              <a class="btn btn-ghost" href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view" target="_blank" rel="noopener">Download CV</a>
-            </div>
-          </div>
-          <div>
-            <img class="landing-img" src="images/aboutme1.png" alt="Pawan Sharma" />
-          </div>
-        </div>
+    <canvas id="canvas3d"></canvas>
+    <div id="scroll-container"></div>
+
+    <div id="ui-overlay">
+      <div id="scene-title"></div>
+      <div id="nav-dots">
+        <div class="nav-dot active" data-scene="0" data-label="Welcome"></div>
+        <div class="nav-dot" data-scene="1" data-label="Skills"></div>
+        <div class="nav-dot" data-scene="2" data-label="Projects"></div>
+        <div class="nav-dot" data-scene="3" data-label="Experience"></div>
+        <div class="nav-dot" data-scene="4" data-label="Contact"></div>
       </div>
+      <div id="scroll-hint">
+        <span>Scroll to explore</span>
+        <span class="arrow">&#x2193;</span>
+      </div>
+    </div>
+
+    <div id="site-content">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+			<a class="navbar-brand" href="/">
+				<div style="line-height: 1.2;">
+				  <strong>Pawan Sharma</strong><br>
+				  <small>B.Com, M.Com, CA Inter, AFSP</small>
+				</div>
+			  </a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
+	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
+	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+	  <section id="home-section" class="hero">
+		  <div class="home-slider  owl-carousel">
+	       <div class="slider-item ">
+	      	<div class="overlay"></div>
+	         <div class="container">
+	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.jpg);">
+	          	 <div class="overlay"></div>
+	          	</div>
+		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text">
+						<span class="subheading" style="font-size: 24px;">Hello!</span>
+						  <h1 class="mb-4 mt-3">I'm <span>Pawan Sharma</span></h1>
+
+						<!-- Element to contain animated typing -->
+						<span id="typing-animation"></span>
+
+						<script>
+
+						// Initialize the typing animation
+						const typingAnimationElement = document.getElementById('typing-animation');
+
+						// Create an array of typing text
+						const typingTexts = [
+						'Detail Oriented    ',
+						'Problem Solver    ',
+						'Quality Oriented    ',
+						'Quick Learner    ',
+						'Enthusiastic    ',
+						];
+
+						// Create a function to display the typing animation for a given text
+						function playTypingAnimation(text) {
+						// Loop through each character and add it to the element
+						for (let i = 0; i < text.length; i++) {
+							setTimeout(() => {
+							typingAnimationElement.textContent += text[i];
+							}, i * 200); // Increase the delay to slow down the typing animation
+						}
+
+						// Once the animation is complete, reset the text and start over
+						setTimeout(() => {
+							typingAnimationElement.textContent = '';
+							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+						}, text.length * 200);
+						}
+
+						// Start the typing animation loop
+						playTypingAnimation(typingTexts[0]);
+
+						</script>
+
+						<br>
+						<br>
+			            <h2>Versatile Accountant, TaxPro, Emerging CFO Leader</h2>
+						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
+						<!-- <br> -->
+			            <p><a href="https://www.linkedin.com/in/pawan-sharma-753ab5323/" class="btn btn-primary py-3 px-4">LINKEDIN</a> 
+							<a href="https://github.com/SharmaPawan" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+		            </div>
+		          </div>
+	        	</div>
+	        </div>
+	      </div>
+		</div>
     </section>
 
-    <!-- About -->
-    <section id="about-section" aria-label="About Me">
+
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
-        <div class="about-grid">
-          <div class="card">
-            <h2 class="h2">About Me</h2>
-            <p class="muted">
-              I'm a detail-oriented professional with 5+ years in US accounting, taxation, and financial reporting.
-              I specialize in automation (Power Automate, Excel macros, Zoho Flow), month-end close, reconciliations,
-              GAAP compliance, and KPI-driven reporting.
-            </p>
-            <ul class="muted" style="margin-top:12px; line-height:1.8;">
-              <li>Full-cycle bookkeeping & financial statements</li>
-              <li>AP processing, vendor & intercompany reconciliations</li>
-              <li>Accruals, prepaid, depreciation, lease accounting</li>
-              <li>Income/Payroll/Sales tax filings</li>
-              <li>Dashboards for ratios & trends</li>
+        <div class="row d-flex align-items-stretch">
+    
+          <!-- LEFT SIDE (Image + Address - Desktop Only) -->
+          <div class="col-md-6 col-lg-6 d-flex flex-column">
+            <!-- Hero Image -->
+            <div class="img-about w-100 js-fullheight" style="background-image: url('images/aboutme1.png'); background-size: cover; background-position: center;">
+              <div class="overlay"></div>
+            </div>
+    
+            <!-- Address Info - Desktop only -->
+            <ul class="about-info mt-5 px-md-0 px-2 d-none d-lg-block"> 
+              <li class="d-flex"><span>Languages:</span> <span>English, Hindi, Gujarati</span></li>
+              <li class="d-flex"><span>Interests:</span> <span>Exploring Technologies, Dancing, Teaching</span></li>
+              <li class="d-flex"><span>Address:</span> <span>Isanpur, Ahmedabad, Gujarat, India</span></li>
             </ul>
-          </div>
-          <div class="card">
-            <img class="about-img" src="images/bg_1.jpg" alt="Work background" />
-          </div>
+          </div> <!-- END LEFT SIDE -->
+    
+          <!-- RIGHT SIDE - About Me -->
+          <div class="col-md-6 col-lg-6 pl-lg-5 pb-5">
+            <div class="row justify-content-start pb-3">
+              <div class="col-md-12 heading-section ftco-animate">
+                <h1 class="big">About</h1>
+                <h2 class="mb-4">About Me</h2>
+    
+                <p style="text-align: justify;">
+                  I'm Pawan Sharma, a detail-oriented professional with 5+ years of experience in US accounting, taxation, and financial reporting.
+                </p>
+    
+                <!-- Key Skills Block -->
+                <p style="text-align: justify;"><strong>My Key Skills & Expertise are:</strong></p>
+                <ul style="padding-left: 1.2rem; margin-bottom: 1rem;">
+                  <li>Full-cycle bookkeeping & financial reporting</li>
+                  <li>AP processing, vendor reconciliations, & statement matching</li>
+                  <li>Bank, credit card, lease, & intercompany reconciliations</li>
+                  <li>Month-end close, accruals, prepaid expenses, & depreciation</li>
+                  <li>US GAAP compliance & ASC standards application</li>
+                  <li>US Taxation: Income Tax, Payroll Tax, & Sales Tax Filings</li>
+                  <li>Payroll processing & job cost analysis</li>
+                  <li>Dashboard creation for ratio analysis & trend reporting</li>
+                </ul>
+    
+                <p style="text-align: justify;">
+                  I specialize in process automation and workflow optimization using tools like Power Automate, Excel macros, and Zoho Flow.
+                </p>
+                <p style="text-align: justify;">
+                  My experience includes team leadership, new hire training, and developing client-specific KPIs for performance tracking.
+                  I'm passionate about solving problems, staying ahead of deadlines, and adding value through continuous learning and innovation.
+                </p>
+    
+                <!-- Address Info - Mobile Only -->
+                <ul class="about-info mt-4 d-lg-none" style="padding-left: 0; margin-left: 0;">
+                  <li class="d-flex"><span>Languages:</span> <span>English, Hindi, Gujarati</span></li>
+                  <li class="d-flex"><span>Interests:</span> <span>Exploring Technologies, Dancing, Teaching</span></li>
+                  <li class="d-flex"><span>Address:</span> <span>Isanpur, Ahmedabad, Gujarat, India</span></li>
+                </ul>
+    
+              </div>
+            </div>
+          </div> <!-- END RIGHT SIDE -->
+    
         </div>
       </div>
+    </section>    
+<!-- Software Proficiency Section -->
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h3><span style="color: #396eff; font-family: inherit;">Software</span> Proficiency</h3>
+  </div>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Each slide: Logo + Name -->
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo1.png" alt="Logo 1" />
+          <p class="logo-name">CCH Axcess Tax</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo2.jpg" alt="Logo 2" />
+          <p class="logo-name">Intuit Lacerte</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo3.png" alt="Logo 3" />
+          <p class="logo-name">Intuit ProConnect</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo4.png" alt="Logo 4" />
+          <p class="logo-name">Intuit ProSeries</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo5.png" alt="Logo 5" />
+          <p class="logo-name">TaxSlayer</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo6.png" alt="Logo 6" />
+          <p class="logo-name">UltraTax CS</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo7.png" alt="Logo 7" />
+          <p class="logo-name">Drake Tax</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo8.png" alt="Logo 8" />
+          <p class="logo-name">Canopy Tax</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo9.png" alt="Logo 9" />
+          <p class="logo-name">ClickUp</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo10.png" alt="Logo 10" />
+          <p class="logo-name">Acumatica</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo11.png" alt="Logo 11" />
+          <p class="logo-name">Intuit QuickBooks</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo12.png" alt="Logo 12" />
+          <p class="logo-name">Tally ERP 9</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo13.png" alt="Logo 13" />
+          <p class="logo-name">Tally Prime</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo14.png" alt="Logo 14" />
+          <p class="logo-name">NetSuite</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo15.png" alt="Logo 15" />
+          <p class="logo-name">GSuite</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo16.png" alt="Logo 16" />
+          <p class="logo-name">Microsoft 365</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo17.png" alt="Logo 17" />
+          <p class="logo-name">ShareFile</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo18.png" alt="Logo 18" />
+          <p class="logo-name">SurePrep</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo19.png" alt="Logo 19" />
+          <p class="logo-name">Learnyst LMS</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo20.png" alt="Logo 20" />
+          <p class="logo-name">Zoho</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="images/logo21.png" alt="Logo 21" />
+          <p class="logo-name">ChatGPT</p>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    slidesPerView: "auto",
+    spaceBetween: 1,
+    speed: 900, // faster speed (3000ms = 3 seconds for transition)
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      reverseDirection: false, // Left to right
+    },
+  });
+</script>
+
+	<section class="ftco-section ftco-no-pb" id="education-section">
+			<div class="container">
+				<div class="row justify-content-center pb-5">
+			  <div class="col-md-10 heading-section text-center ftco-animate">
+				  <h1 class="big big-2">Education</h1>
+				<h2 class="mb-4">Education</h2>
+			  </div>
+			</div>
+			
+
+		<div class="row justify-content-center">
+			<!-- B.Com and M.Com side by side -->
+			<div class="col-md-6 col-lg-4">
+			  <div class="resume-wrap ftco-animate text-center">
+				<span class="date">2016-2018</span>
+				<h2>Bachelor of Commerce (B.Com)</h2>
+				<span class="position">Gujarat Commerce College</span>
+				<p class="mt-4">Percentage: 72%.</p>
+			  </div>
+			</div>
+		  
+			<div class="col-md-6 col-lg-4">
+			  <div class="resume-wrap ftco-animate text-center">
+				<span class="date">2019-2021</span>
+				<h2>Master of Commerce (M.Com)</h2>
+				<span class="position">Gujarat Commerce College</span>
+				<p class="mt-4">Percentage: 65%.</p>
+			  </div>
+			</div>
+		  </div>
+		  
+		  <!-- CA Inter centered below -->
+		  <div class="row justify-content-center">
+			<div class="col-md-6 col-lg-5">
+			  <div class="resume-wrap ftco-animate text-center">
+				<span class="date">2016-2019</span>
+				<h2>CA Inter</h2>
+				<span class="position">ICAI</span>
+				<p class="mt-4">Percentage: 50%.</p>
+			  </div>
+			</div>
+		  </div>
+		  
+		  <!-- Download button centered below -->
+		  <div class="row justify-content-center mt-4">
+			<div class="col-md-6 text-center ftco-animate">
+			  <p>
+				<a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view" class="btn btn-primary py-4 px-5">
+				  Download CV
+				</a>
+			  </p>
+			</div>
+		  </div>
     </section>
 
-    <!-- Software Proficiency (marquee over 3D) -->
-    <section id="software-section" aria-label="Software Proficiency">
+
+
+   
+<!--
+   <section class="ftco-section" id="project-section">
       <div class="container">
-        <h2 class="h2" style="margin-bottom:10px;">Software <span style="color:#39a0ff">Proficiency</span></h2>
-        <p class="muted" style="margin-bottom:12px;">Expert in 21+ financial tools</p>
-        <div class="logos-wrap">
-          <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <!-- keep adding your logo slides; these are examples -->
-              <div class="swiper-slide"><img src="images/logo1.png" alt="CCH Axcess Tax"><p class="logo-name">CCH Axcess Tax</p></div>
-              <div class="swiper-slide"><img src="images/logo2.jpg" alt="Intuit Lacerte"><p class="logo-name">Intuit Lacerte</p></div>
-              <div class="swiper-slide"><img src="images/logo3.png" alt="ProConnect"><p class="logo-name">ProConnect</p></div>
-              <div class="swiper-slide"><img src="images/logo4.png" alt="ProSeries"><p class="logo-name">ProSeries</p></div>
-              <div class="swiper-slide"><img src="images/logo11.png" alt="QuickBooks"><p class="logo-name">QuickBooks</p></div>
-              <div class="swiper-slide"><img src="images/logo14.png" alt="NetSuite"><p class="logo-name">NetSuite</p></div>
-              <div class="swiper-slide"><img src="images/logo20.png" alt="Zoho"><p class="logo-name">Zoho</p></div>
-              <div class="swiper-slide"><img src="images/logo21.png" alt="ChatGPT"><p class="logo-name">ChatGPT</p></div>
-              <!-- ...add the rest of your 21 logos here ... -->
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Projects</h1>
+            <h2 class="mb-4">Projects</h2>
+            <p>Below are sample projects focused on financial analysis, risk assessment, and business strategy.</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="#">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="#">Digital Financial Literecy in Rural Area</a></h3>
+                <p>Digital Financial Literecy in Rural Area.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="#">Data Analysis using Python Project for Beginners</a></h3>
+                <p>Performed exploratory data analysis on diwali sales data using Python to improve the customer experience.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/proj_3.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="#">Power BI Sales dashboard Project for Beginners</a></h3>
+                <p>Designed a power bi dashboard for Madhav Store to track and analyze the online sales data acorss India.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+	<br>
 
-    <!-- Education -->
-    <section id="education-section" aria-label="Education">
+		<div class="row d-flex justify-content-center">  
+			<div class="col-md-4 d-flex ftco-animate">
+				<div class="blog-entry justify-content-end">
+				<a href="#" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
+				</a>
+				<div class="text mt-3 float-right d-block">
+  
+				  <h3 class="heading"><a href="#">Sales Forecast- Time Series Forecasting</a></h3>
+				  <p>Used multiple machine learning models to forecast sales (retail store) and performed time series analysis.</p>
+				</div>
+			  </div>
+			</div>
+			<div class="col-md-4 d-flex ftco-animate">
+				<div class="blog-entry justify-content-end">
+				<a href="#">
+				</a>
+				<div class="text mt-3 float-right d-block">
+  
+				  <h3 class="heading"><a href="#">Customer Segmentation using clustering model</a></h3>
+				  <p>Developed a ML model to give various recommendations of financial products &amp; services on target customer groups.</p>
+				</div>
+			  </div>
+			</div>
+		 </div>
+	  </div>
+    </section> -->
+
+	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
       <div class="container">
-        <h2 class="h2" style="margin-bottom:16px;">Education</h2>
-        <div class="edu-row">
-          <div class="edu-card">
-            <div class="date">2016-2018</div>
-            <h3>Bachelor of Commerce (B.Com)</h3>
-            <div class="pos">Gujarat Commerce College</div>
-            <p class="muted" style="margin-top:8px;">Percentage: 72%</p>
+		<!-- <div class="row d-md-flex align-items-center">
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="20">0</strong>
+                <span>Achievements</span>
+              </div>
+            </div>
           </div>
-          <div class="edu-card">
-            <div class="date">2019-2021</div>
-            <h3>Master of Commerce (M.Com)</h3>
-            <div class="pos">Gujarat Commerce College</div>
-            <p class="muted" style="margin-top:8px;">Percentage: 65%</p>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="30">0</strong>
+                <span>Projects</span>
+              </div>
+            </div>
           </div>
-          <div class="edu-card">
-            <div class="date">2016-2019</div>
-            <h3>CA Inter</h3>
-            <div class="pos">ICAI</div>
-            <p class="muted" style="margin-top:8px;">Percentage: 50%</p>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <!-- <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="1000">0</strong>
+                <span>Mentored Professionals</span>
+              </div>
+            </div> -->
           </div>
+          <!-- <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="500">0</strong>
+                <span>Cups of coffee</span>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
-    </section>
+	
+	<section class="ftco-about img ftco-section ftco-no-pb" id="project-section"> 
+	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_10.jpg)">
+			<!-- <div class="container"> -->
+				<div class="row justify-content-center">
+					<div class="col-md-7 ftco-animate text-center">
+						<h2>More projects on<span> Github  </span> </h2>
+						<div class="heading"> <h4> I love to solve business problems &amp; uncover hidden data stories </h4>
+						<br>
+						<p><a href="https://github.com/SharmaPawan" class="btn btn-primary py-3 px-5">GitHub</a></p>
+						</div>
+					</div>
+				</div>
+			<!-- </div> -->
+		</div>
+	</section>
 
-    <!-- CTA band (GitHub) -->
-    <section class="cta-band" aria-label="More projects">
-      <div class="cta-overlay"></div>
-      <div class="container cta-inner" style="text-align:center;">
-        <h2 class="h2" style="margin-bottom:10px;">More projects on <span style="color:#39a0ff">GitHub</span></h2>
-        <p class="muted">I love to solve business problems & uncover hidden data stories.</p>
-        <div class="cta-row" style="justify-content:center;">
-          <a class="btn btn-primary" href="https://github.com/SharmaPawan" target="_blank" rel="noopener">Open GitHub</a>
-        </div>
-      </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact-section" aria-label="Contact">
+
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
-        <h2 class="h2" style="margin-bottom:16px;">Contact</h2>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>Address</h3>
-            <p class="muted">Gujarat, India</p>
-          </div>
-          <div class="contact-card">
-            <h3>Phone</h3>
-            <p><a href="tel:+918980477928" style="color:#fff;text-decoration:none;">+91 89804-77928</a></p>
-          </div>
-          <div class="contact-card">
-            <h3>Email</h3>
-            <p><a href="mailto:pawansharma0805@gmail.com" style="color:#fff;text-decoration:none;">pawansharma0805@gmail.com</a></p>
-          </div>
-          <div class="contact-card">
-            <h3>CV</h3>
-            <p><a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view" target="_blank" rel="noopener" style="color:#fff;text-decoration:none;">Download</a></p>
+      	<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Contact</h1>
+            <h2 class="mb-4">Contact Me</h2>
+            <p>Below are the details to reach out to me!</p>
           </div>
         </div>
-        <div style="text-align:center;margin-top:24px;">
-          <a class="btn btn-primary" href="contact.html">Have a Question? Click Here</a>
-        </div>
-      </div>
-    </section>
 
-    <footer>
-      &copy; <span id="year"></span> Pawan Sharma &mdash; All rights reserved.
-    </footer>
-  </main>
-  <!-- ===================== /CONTENT ===================== -->
+        <div class="row d-flex contact-info mb-5">
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-map-signs"></span>
+          		</div>
+          		<h3 class="mb-4">Address</h3>
+	            <p>Gujarat, India</p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-phone2"></span>
+          		</div>
+          		<h3 class="mb-4">Contact Number</h3>
+	            <p><a href="tel://8980477928">+91 89804-77928</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-paper-plane"></span>
+          		</div>
+          		<h3 class="mb-4">Email Address</h3>
+	            <p><a href="pawansharma0805@gmail.com">pawansharma0805@gmail.com</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-globe" a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view"></span>
+          		</div>
+          		<h3 class="mb-4"><a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view">Download CV</h3>
+	            <p><a href="https://drive.google.com/file/d/1u77tuiN9nPnpPEPVcPfDjF6Wj8Eho58B/view">CV Link</a></p>
+	          </div>
+          </div>
 
-  <!-- Three.js (must load before main.js) -->
+		  <div class="container">
+			<br>
+			<br>
+			<div class="row justify-content-center">
+				<div class="col-md-7 ftco-animate text-center">
+					<h2>Have a<span> Question?  </span> <a href="contact.html" class="btn btn-primary py-3 px-5">Click Here</a></h2>
+				</div>
+			</div>
+				<br>
+					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
+					  <li class="ftco-animate normal-txt">Find me on  </li>
+					  <li class="ftco-animate"><a href="https://www.youtube.com/@weLearner_/videos"><span class="icon-youtube"></span></a></li>
+					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/pawan-sharma-753ab5323/"><span class="icon-linkedin"></span></a></li>  
+				      <li class="ftco-animate"><a href="https://www.instagram.com/pawansharma_founder/"><span class="icon-instagram"></span></a></li>
+					</ul>
+				<br>
+		   </div>
+   </div>
+ </section>
+
+
+ 
+	
+    <footer class="ftco-footer ftco-section">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-12 text-center">
+  
+			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This  webpage is made <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://pawans-ai.github.io/" target="_blank">Pawan</a>
+	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+    </div><!-- /#site-content -->
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  
+  <script src="js/main.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js" defer></script>
-  <!-- GSAP (optional) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-
-  <!-- Swiper JS for logos -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
-
-  <!-- Your 3D controller (Experience3D) -->
-  <script src="js/main.js" defer></script>
-
-  <!-- Page scripts (init Swiper, year, small guards) -->
+  <script src="js/experience/main.js" defer></script>
   <script>
-    // Current year
-    document.addEventListener('DOMContentLoaded', function(){
-      var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
-    });
-
-    // Swiper marquee for Software Proficiency
-    window.addEventListener('load', function(){
-      if (window.softwareSwiper && window.softwareSwiper.destroy) {
-        window.softwareSwiper.destroy(true, true);
-      }
-      if (window.Swiper) {
-        window.softwareSwiper = new Swiper('.mySwiper', {
-          loop:true,
-          allowTouchMove:false,
-          slidesPerView:'auto',
-          spaceBetween:24,
-          speed:6000,
-          autoplay:{delay:0, disableOnInteraction:false}
-        });
-      }
-    });
-
-    // Safety: if THREE failed to load for any reason, try fallback CDN then start
     (function(){
       function ensureThreeLoaded(cb){
         if (window.THREE) return cb();
-        var s=document.createElement('script');
-        s.src="https://unpkg.com/three@0.160.0/build/three.min.js";
-        s.onload=cb;
-        s.onerror=function(){console.error("Failed to load THREE fallback"); cb();};
-        document.head.appendChild(s);
+        var script = document.createElement('script');
+        script.src = 'https://unpkg.com/three@0.160.0/build/three.min.js';
+        script.onload = cb;
+        script.onerror = function(){ console.error('Failed to load THREE fallback'); cb(); };
+        document.head.appendChild(script);
       }
-      ensureThreeLoaded(function(){ /* your js/main.js bootstraps Experience3D itself */ });
+      ensureThreeLoaded(function(){ /* js/experience/main.js handles init */ });
     })();
   </script>
-</body>
+    
+  </body>
 </html>
