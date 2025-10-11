@@ -6,8 +6,6 @@
 class Experience3D {
   constructor() {
     this.canvas = document.getElementById('canvas3d');
-    this.loadingScreen = document.getElementById('loading-screen');
-    this.loadingProgress = document.getElementById('loading-progress');
     this.sceneTitle = document.getElementById('scene-title');
     this.infoPanel = document.getElementById('info-panel');
     this.scrollHint = document.getElementById('scroll-hint');
@@ -33,7 +31,8 @@ class Experience3D {
     this.setupLights();
     this.createScenes();
     this.setupEventListeners();
-    this.startLoadingSequence();
+    this.showSceneTitle(0);
+    this.animate();
   }
 
   setupRenderer() {
@@ -348,29 +347,6 @@ class Experience3D {
     return scene;
   }
 
-  startLoadingSequence() {
-    let progress = 0;
-    const loadingInterval = setInterval(() => {
-      progress += Math.random() * 15;
-      if (progress >= 100) {
-        progress = 100;
-        clearInterval(loadingInterval);
-        setTimeout(() => this.finishLoading(), 500);
-      }
-      this.loadingProgress.textContent = Math.floor(progress) + '%';
-    }, 100);
-  }
-
-  finishLoading() {
-    this.loadingScreen.classList.add('hidden');
-    setTimeout(() => {
-      this.loadingScreen.style.display = 'none';
-    }, 800);
-    
-    this.showSceneTitle(0);
-    this.animate();
-  }
-
   setupEventListeners() {
     // Scroll
     window.addEventListener('scroll', () => this.onScroll(), { passive: true });
@@ -562,13 +538,6 @@ function bootstrapExperience() {
     new Experience3D();
   } catch (error) {
     console.error('Failed to initialize Experience3D:', error);
-    const loading = document.getElementById('loading-screen');
-    if (loading) {
-      loading.classList.add('hidden');
-      setTimeout(() => {
-        loading.style.display = 'none';
-      }, 800);
-    }
   }
 }
 
