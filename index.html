@@ -519,6 +519,40 @@
     margin: 0;
     color: #999393;
   }
+
+/* Header fix: keep nav above hero image and stop photo from covering menu */
+#ftco-navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999 !important;
+  background: rgba(0, 0, 0, 0.88) !important;
+}
+
+#home-section {
+  padding-top: 88px;
+}
+
+#home-section .home-slider,
+#home-section .home-slider .slider-item,
+#home-section .home-slider .slider-item .slider-text {
+  min-height: calc(100vh - 88px);
+}
+
+@media (max-width: 991.98px) {
+  #home-section {
+    padding-top: 70px;
+  }
+
+  #home-section .home-slider,
+  #home-section .home-slider .slider-item,
+  #home-section .home-slider .slider-item .slider-text {
+    min-height: calc(100vh - 70px);
+  }
+}
+
 </style>
 	  
 
